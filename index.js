@@ -1,5 +1,6 @@
 const {
-    ProcessText
+    ProcessText,
+    RandomLing
 } = require("./handler")
 const {
     Telegraf
@@ -31,26 +32,37 @@ const bot = new Telegraf(self.BOT_TOKEN);
 
 // Your code here, but do not `bot.launch()`
 // Do not forget to set environment variables BOT_TOKEN and SECRET_PATH on your worker
-bot.on(message("text"), ctx => ctx.reply("这是一个inline bot，输入 @ling_lang_bot 以进入美丽旗舰店"));
+bot.on(message("text"), ctx => ctx.reply("这是一个inline bot，输入 @ling_lang_bot 以使用"));
 bot.on('inline_query', async (ctx) => {
+    const result = [];
     let query = ctx.inlineQuery.query;
     if (!query) {
-        query = "不努力就去死"
+        const text = RandomLing()
+        result.push({
+            type: "article",
+            id: hash(text),
+            title: "随机一淋",
+            description: "随机一淋",
+            input_message_content: {
+                message_text: text
+            },
+        })
+    } else {
+        const newText = ProcessText(query)
+        result.push({
+            type: "article",
+            id: hash(query),
+            title: "啾咪",
+            description: newText,
+            input_message_content: {
+                message_text: newText
+            },
+        })
     }
-    const result = [];
-    const newText = ProcessText(query)
-    result.push({
-        type: "article",
-        id: hash(query),
-        title: "啾咪",
-        description: newText,
-        input_message_content: {
-            message_text: newText
-        },
-    })
-    console.log(`Convert ${query} to ${newText}`)
     // Using context shortcut
-    await ctx.telegram.answerInlineQuery(ctx.inlineQuery.id, result);
+    await ctx.answerInlineQuery(result, {
+        cache_time: 0
+    });
 });
 
 const router = new Router();

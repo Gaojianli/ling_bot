@@ -1,5 +1,9 @@
-# cfworker-telegraf-template
+# ling bot
+自动淋语BOT，一起来当大母零吧！
 
-A template for Telegram Bot using [telegraf](https://github.com/telegraf/telegraf) framework on Cloudflare Workers.
-
-See more on [cfworker-middleware-telegraf](https://github.com/Tsuk1ko/cfworker-middleware-telegraf).
+## Install
+```bash
+wrangler secret put SECRET_PATH
+wrangler secret put BOT_TOKEN
+wrangler publish
+```
