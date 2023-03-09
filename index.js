@@ -31,7 +31,7 @@ const bot = new Telegraf(self.BOT_TOKEN);
 
 // Your code here, but do not `bot.launch()`
 // Do not forget to set environment variables BOT_TOKEN and SECRET_PATH on your worker
-bot.on(message("text"), ctx => ctx.reply("输入 @ling_lang_bot 以使用"));
+bot.on(message("text"), ctx => ctx.reply("这是一个inline bot，输入 @ling_lang_bot 以进入美丽旗舰店"));
 bot.on('inline_query', async (ctx) => {
     let query = ctx.inlineQuery.query;
     if (!query) {

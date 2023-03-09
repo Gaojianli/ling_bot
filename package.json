@@ -8,7 +8,8 @@
   "license": "MIT",
   "private": true,
   "scripts": {
-    "build": "webpack -c webpack.config.js"
+    "build": "webpack -c webpack.config.js",
+    "test": "mocha"
   },
   "dependencies": {
     "@cfworker/web": "^1.12.4",
@@ -16,6 +17,7 @@
     "telegraf": "^4.12.1"
   },
   "devDependencies": {
+    "mocha": "^10.2.0",
     "node-polyfill-webpack-plugin": "^2.0.1",
     "webpack": "^5.74.0",
     "webpack-cli": "^4.10.0"
