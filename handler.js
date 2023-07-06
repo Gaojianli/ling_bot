@@ -70,8 +70,7 @@ function randomInteger(min, max) {
 }
 
 function getFlag(inlineQuery) {
-	console.log(inlineQuery)
-	if (inlineQuery.from.username === "SCYuudachi") {
+	if (inlineQuery.from.username === "@SCYuudachi") {
 		return "🏳️‍⚧️"
 	}
 	return Math.random() < 0.8 ? "🏳️‍🌈" : "🏳️‍⚧️"
