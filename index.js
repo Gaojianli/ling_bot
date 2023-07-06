@@ -38,7 +38,7 @@ bot.on('inline_query', async (ctx) => {
 	const result = [];
 	let query = ctx.inlineQuery.query;
 	if (!query) {
-		const lingness = RandomBigMuLingNess();
+		const lingness = RandomBigMuLingNess(ctx.inlineQuery);
 		const randomLing = RandomLing();
 		result.push({
 			type: "article",
