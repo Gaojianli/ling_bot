@@ -73,7 +73,7 @@ function getFlag(inlineQuery) {
 	if (inlineQuery.from.username === "@SCYuudachi") {
 		return "🏳️‍⚧️"
 	}
-	return Math.random() < 0.8 ? "🏳️‍🌈" : "🏳️‍⚧️"
+	return Math.random() < 0.7 ? "🏳️‍🌈" : "🏳️‍⚧️"
 }
 
 module.exports = {
