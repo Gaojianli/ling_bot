@@ -69,11 +69,8 @@ function randomInteger(min, max) {
 	return Math.floor(Math.random() * (max - min + 1)) + min;
 }
 
-function getFlag(inlineQuery) {
-	if (inlineQuery.from.username === "@SCYuudachi") {
-		return "🏳️‍⚧️"
-	}
-	return Math.random() < 0.7 ? "🏳️‍🌈" : "🏳️‍⚧️"
+function getFlag() {
+	return Math.random() <= 0.75 ? "🏳️‍🌈" : "🏳️‍⚧️"
 }
 
 module.exports = {
@@ -89,11 +86,11 @@ module.exports = {
 	RandomLing: () => {
 		return lingLibary[Math.floor(Math.random() * lingLibary.length)]
 	},
-	RandomBigMuLingNess: (inlineQuery) => {
+	RandomBigMuLingNess: () => {
 		let template = "我的大母0指数是"
 		const lingNess = randomInteger(0, 100)
 		if (lingNess > 60) {
-			template = getFlag(inlineQuery) + template
+			template = getFlag() + template
 		}
 
 		return template + `${lingNess}%`
